@@ -24,7 +24,7 @@ class patience::production {
   }
 
   file { "app":
-    path    => "/home/deploy/www/patience",
+    path    => "/home/deploy/patience",
     ensure  =>  directory,
     owner   => "deploy",
     group   => "www-data",
