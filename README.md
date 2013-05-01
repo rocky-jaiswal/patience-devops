@@ -1,4 +1,5 @@
 #Setup
+------
 
 $ wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
 
