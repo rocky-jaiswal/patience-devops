@@ -7,7 +7,7 @@ class patience::production {
   }
 
   user { "deploy":
-    comment => "Dashboad User",
+    comment => "Deploy User",
     home    => "/home/deploy",
     ensure  => present,
     gid     => "www-data",
@@ -23,8 +23,17 @@ class patience::production {
     require => User["deploy"],
   }
 
-  file { "app":
+  file { "app1":
     path    => "/home/deploy/patience",
+    ensure  =>  directory,
+    owner   => "deploy",
+    group   => "www-data",
+    recurse => true,
+    require => File["home"],
+  }
+
+  file { "app2":
+    path    => "/home/deploy/js-ncr",
     ensure  =>  directory,
     owner   => "deploy",
     group   => "www-data",

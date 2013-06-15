@@ -1,11 +1,11 @@
 server {
     listen   80;
-    server_name 198.211.113.34; 
+    server_name js-ncr.in; 
 
-    access_log  /var/log/nginx/patience.access.log;
+    access_log  /var/log/nginx/js-ncr.access.log;
 
     location / {
-        root /home/deploy/patience/dist;
+        root /home/deploy/js-ncr/dist;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
