@@ -33,7 +33,7 @@ class patience::production {
   }
 
   file { "app2":
-    path    => "/home/deploy/js-ncr",
+    path    => "/home/deploy/ncr-js",
     ensure  =>  directory,
     owner   => "deploy",
     group   => "www-data",

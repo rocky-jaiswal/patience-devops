@@ -42,21 +42,21 @@ class patience::nginx {
     require => File["patience-avaliable"],
   }
 
-  file { "jsncr-avaliable":
-    path    => "/etc/nginx/sites-available/js-ncr",
+  file { "ncrjs-avaliable":
+    path    => "/etc/nginx/sites-available/ncr-js",
     ensure  => present,
     mode    => 0644,
-    source  => "puppet:///modules/patience/static/js-ncr",
+    source  => "puppet:///modules/patience/static/ncr-js",
     require => File["logfile2", "patience-enabled"],
     notify  => Service["nginx"],
   }
 
-  file { "jsncr-enabled":
-    path    => "/etc/nginx/sites-enabled/js-ncr",
+  file { "ncrjs-enabled":
+    path    => "/etc/nginx/sites-enabled/ncr-js",
     ensure  => link,
     mode    => 0644,
-    target  => "/etc/nginx/sites-available/js-ncr",
-    require => File["jsncr-avaliable"],
+    target  => "/etc/nginx/sites-available/ncr-js",
+    require => File["ncrjs-avaliable"],
   }
 
 
