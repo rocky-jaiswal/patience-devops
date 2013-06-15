@@ -56,7 +56,7 @@ class patience::nginx {
     ensure  => link,
     mode    => 0644,
     target  => "/etc/nginx/sites-available/js-ncr",
-    require => File["js-ncr-avaliable"],
+    require => File["jsncr-avaliable"],
   }
 
 
