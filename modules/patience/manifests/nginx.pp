@@ -44,7 +44,7 @@ class patience::nginx {
     path    => "/etc/nginx/sites-available/patience",
     ensure  => present,
     mode    => 0644,
-    source  => "puppet:///modules/rockyj/static/patience",
+    source  => "puppet:///modules/patience/static/patience",
     require => File["logfile1", "unwanted-default"],
     notify  => Service["nginx"],
   }
@@ -61,7 +61,7 @@ class patience::nginx {
     path    => "/etc/nginx/sites-available/js-ncr",
     ensure  => present,
     mode    => 0644,
-    source  => "puppet:///modules/rockyj/static/js-ncr",
+    source  => "puppet:///modules/patience/static/js-ncr",
     require => File["logfile2", "unwanted-default"],
     notify  => Service["nginx"],
   }
