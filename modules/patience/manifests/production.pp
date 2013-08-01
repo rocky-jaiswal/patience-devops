@@ -51,13 +51,4 @@ class patience::production {
     require => File["home"],
   }
 
-  file { "patience-dist":
-    path    => "/home/deploy/patience/dist",
-    ensure  =>  directory,
-    owner   => "deploy",
-    group   => "www-data",
-    recurse => true,
-    require => File["patience"],
-  }
-
 }
