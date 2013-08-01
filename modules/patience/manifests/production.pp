@@ -1,7 +1,7 @@
 class patience::production {
 
-  include rockyj::nginx
-  include rockyj::node
+  include patience::nginx
+  include patience::node
   include ufw
 
   Exec {
