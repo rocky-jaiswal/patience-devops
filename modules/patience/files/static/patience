@@ -1,6 +1,6 @@
 server {
     listen   80;
-    server_name patience.in; 
+    server_name patiencetech.in; 
 
     access_log  /var/log/nginx/patience.access.log;
 
