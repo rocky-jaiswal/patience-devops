@@ -1,9 +1,19 @@
-class patience::production {
+class rockyj::production {
 
-  include patience::nginx
+  include rockyj::nginx
+  include rockyj::node
+  include ufw
 
   Exec {
     path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  }
+
+  ufw::allow { "allow-ssh-from-all":
+    port => 22,
+  }
+
+  ufw::allow { "allow-http-from-all":
+    port => 80,
   }
 
   user { "deploy":
@@ -23,8 +33,8 @@ class patience::production {
     require => User["deploy"],
   }
 
-  file { "app1":
-    path    => "/home/deploy/patience",
+  file { "js-ncr":
+    path    => "/home/deploy/js-ncr",
     ensure  =>  directory,
     owner   => "deploy",
     group   => "www-data",
@@ -32,8 +42,8 @@ class patience::production {
     require => File["home"],
   }
 
-  file { "app2":
-    path    => "/home/deploy/ncr-js",
+  file { "patience":
+    path    => "/home/deploy/patience",
     ensure  =>  directory,
     owner   => "deploy",
     group   => "www-data",
