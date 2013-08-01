@@ -34,6 +34,12 @@ class patience::nginx {
     mode    => 0644,
   }
 
+  file { "logfile3":
+    path    => "/var/log/nginx/crm-ng.access.log",
+    ensure  => present,
+    mode    => 0644,
+  }
+
   file { "unwanted-default":
     path    => "/etc/nginx/sites-enabled/default",
     ensure  => absent,
@@ -72,6 +78,23 @@ class patience::nginx {
     mode    => 0644,
     target  => "/etc/nginx/sites-available/js-ncr",
     require => File["js-ncr-avaliable"],
+  }
+
+  file { "crm-ng-avaliable":
+    path    => "/etc/nginx/sites-available/crm-ng",
+    ensure  => present,
+    mode    => 0644,
+    source  => "puppet:///modules/patience/static/crm-ng",
+    require => File["logfile3", "unwanted-default"],
+    notify  => Service["nginx"],
+  }
+
+  file { "crm-ng-enabled":
+    path    => "/etc/nginx/sites-enabled/crm-ng",
+    ensure  => link,
+    mode    => 0644,
+    target  => "/etc/nginx/sites-available/crm-ng",
+    require => File["crm-ng-avaliable"],
   }
 
 }

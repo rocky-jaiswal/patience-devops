@@ -51,4 +51,13 @@ class patience::production {
     require => File["home"],
   }
 
+  file { "crm-ng":
+    path    => "/home/deploy/crm-ng",
+    ensure  =>  directory,
+    owner   => "deploy",
+    group   => "www-data",
+    recurse => true,
+    require => File["home"],
+  }
+
 }
