@@ -1,4 +1,4 @@
-class rockyj::nginx {
+class patience::nginx {
   
   include stdlib
   include apt

@@ -1,4 +1,4 @@
-class rockyj::production {
+class patience::production {
 
   include rockyj::nginx
   include rockyj::node

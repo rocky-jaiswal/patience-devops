@@ -11,9 +11,9 @@ $ sudo apt-get update
 
 $ sudo apt-get install puppet-common
 
-$ git clone https://github.com/rocky-jaiswal/blog-devops.git
+$ git clone https://github.com/rocky-jaiswal/patience-devops.git
 
-$ cd blog-devops
+$ cd patience-devops
 
 $ chmod u+x setup.sh
 
