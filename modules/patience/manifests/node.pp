@@ -1,4 +1,4 @@
-class rockyj::node {
+class patience::node {
   
   include stdlib
   include apt
