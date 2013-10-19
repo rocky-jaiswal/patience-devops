@@ -60,4 +60,13 @@ class patience::production {
     require => File["home"],
   }
 
+  file { "graceeducomp":
+    path    => "/home/deploy/graceeducomp",
+    ensure  =>  directory,
+    owner   => "deploy",
+    group   => "www-data",
+    recurse => true,
+    require => File["home"],
+  }
+
 }

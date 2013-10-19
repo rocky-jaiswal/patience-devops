@@ -40,6 +40,12 @@ class patience::nginx {
     mode    => 0644,
   }
 
+  file { "logfile4":
+    path    => "/var/log/nginx/graceeducomp.access.log",
+    ensure  => present,
+    mode    => 0644,
+  }
+
   file { "unwanted-default":
     path    => "/etc/nginx/sites-enabled/default",
     ensure  => absent,
@@ -95,6 +101,23 @@ class patience::nginx {
     mode    => 0644,
     target  => "/etc/nginx/sites-available/crm-ng",
     require => File["crm-ng-avaliable"],
+  }
+
+  file { "graceeducomp-avaliable":
+    path    => "/etc/nginx/sites-available/graceeducomp",
+    ensure  => present,
+    mode    => 0644,
+    source  => "puppet:///modules/patience/static/graceeducomp",
+    require => File["logfile4", "unwanted-default"],
+    notify  => Service["nginx"],
+  }
+
+  file { "graceeducomp-enabled":
+    path    => "/etc/nginx/sites-enabled/graceeducomp",
+    ensure  => link,
+    mode    => 0644,
+    target  => "/etc/nginx/sites-available/graceeducomp",
+    require => File["graceeducomp-avaliable"],
   }
 
 }
